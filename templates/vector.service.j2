@@ -7,7 +7,7 @@ Requires=network-online.target
 [Service]
 User= {{ ansible_user_id }}
 Group= {{ ansible_user_gid }}
-ExecStart=/home/{{ ansible_user_id }}/{{ vector_dir }}/bin/vector --config /home/{{ ansible_user_id }}/{{ vector_dir }}/config/vector.toml --watch-config true
+ExecStart=/root/{{ vector_dir }}/bin/vector --config /root/{{ vector_dir }}/config/vector.toml --watch-config true
 Restart=always
 
 [Install]

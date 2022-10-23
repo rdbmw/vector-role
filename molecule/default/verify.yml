@@ -1,0 +1,19 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Delay 10s before checking Vector service status
+    ansible.builtin.pause:
+      seconds: 10
+  - name: Request Vector service status
+    ansible.builtin.shell: systemctl status vector | grep Active
+    register: res
+    ignore_errors: yes
+    changed_when: false
+  - name: Checking Vector service status
+    ansible.builtin.assert:
+      that: "'active (running)' in res.stdout"
+

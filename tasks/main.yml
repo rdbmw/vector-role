@@ -2,7 +2,7 @@
 - name: Get Vector archive
   ansible.builtin.get_url:
     url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
-    dest: "./vector-{{ vector_version }}.tar.gz"
+    dest: "~/vector-{{ vector_version }}.tar.gz"
     mode: '0644'
 
 - name: Create vector directory
@@ -34,3 +34,5 @@
     name: vector
     state: started
     daemon_reload: true
+
+
